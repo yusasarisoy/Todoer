@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/tasks_list.dart';
 
 class TasksScreen extends StatelessWidget {
   const TasksScreen({Key? key}) : super(key: key);
@@ -6,10 +7,13 @@ class TasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: Colors.pinkAccent,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.lightBlueAccent,
-        child: Icon(Icons.add),
+        backgroundColor: Colors.pinkAccent,
+        child: Icon(
+          Icons.add,
+          color: Colors.black87,
+        ),
         onPressed: () {},
       ),
       body: Column(
@@ -24,9 +28,9 @@ class TasksScreen extends StatelessWidget {
                   child: Icon(
                     Icons.list,
                     size: 30,
-                    color: Colors.lightBlueAccent,
+                    color: Colors.pinkAccent,
                   ),
-                  backgroundColor: Colors.white,
+                  backgroundColor: Colors.black87,
                   radius: 30,
                 ),
                 SizedBox(
@@ -35,7 +39,7 @@ class TasksScreen extends StatelessWidget {
                 Text(
                   'Todoer',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black87,
                     fontSize: 50,
                     fontWeight: FontWeight.w700,
                   ),
@@ -46,7 +50,7 @@ class TasksScreen extends StatelessWidget {
                 Text(
                   '12 Tasks',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black87,
                     fontSize: 18,
                   ),
                 ),
@@ -55,14 +59,16 @@ class TasksScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
               height: 300,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.black87,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),
                   topRight: Radius.circular(20),
                 ),
               ),
+              child: TasksList(),
             ),
           ),
         ],
