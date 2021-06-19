@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:todoer/screens/add_task_screen.dart';
 import '../widgets/tasks_list.dart';
 
 class TasksScreen extends StatelessWidget {
-  const TasksScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +13,20 @@ class TasksScreen extends StatelessWidget {
           Icons.add,
           color: Colors.black87,
         ),
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            isScrollControlled: true,
+            builder: (context) => SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                ),
+                child: AddTaskScreen(),
+              ),
+            ),
+          );
+        },
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,7 +60,7 @@ class TasksScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  '12 Tasks',
+                  '3 Tasks',
                   style: TextStyle(
                     color: Colors.black87,
                     fontSize: 18,

@@ -9,7 +9,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: TasksScreen(),
-      theme: ThemeData(unselectedWidgetColor: Colors.white),
+      theme: ThemeData(
+        unselectedWidgetColor: Colors.white,
+        inputDecorationTheme: InputDecorationTheme(
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.black87,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
