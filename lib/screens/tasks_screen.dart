@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:todoer/screens/add_task_screen.dart';
 import '../widgets/tasks_list.dart';
+import '../models/task.dart';
 
-class TasksScreen extends StatelessWidget {
+class TasksScreen extends StatefulWidget {
+  @override
+  _TasksScreenState createState() => _TasksScreenState();
+}
+
+class _TasksScreenState extends State<TasksScreen> {
+  List<Task> tasks = [
+    Task(name: 'Buy milk'),
+    Task(name: 'Buy eggs'),
+    Task(name: 'Buy bread')
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +34,11 @@ class TasksScreen extends StatelessWidget {
                 padding: EdgeInsets.only(
                   bottom: MediaQuery.of(context).viewInsets.bottom,
                 ),
-                child: AddTaskScreen(),
+                child: AddTaskScreen((taskTitle) {
+                  setState(() {
+                    tasks.add(Task(name: taskTitle));
+                  });
+                }),
               ),
             ),
           );
@@ -60,7 +76,7 @@ class TasksScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  '3 Tasks',
+                  '${tasks.length} Tasks',
                   style: TextStyle(
                     color: Colors.black87,
                     fontSize: 18,
@@ -80,7 +96,7 @@ class TasksScreen extends StatelessWidget {
                   topRight: Radius.circular(20),
                 ),
               ),
-              child: TasksList(),
+              child: TasksList(tasks),
             ),
           ),
         ],
