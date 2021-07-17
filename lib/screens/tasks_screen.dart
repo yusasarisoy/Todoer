@@ -24,11 +24,7 @@ class TasksScreen extends StatelessWidget {
                 padding: EdgeInsets.only(
                   bottom: MediaQuery.of(context).viewInsets.bottom,
                 ),
-                child: AddTaskScreen((taskTitle) {
-                  // setState(() {
-                  //   tasks.add(Task(name: taskTitle));
-                  // });
-                }),
+                child: AddTaskScreen(),
               ),
             ),
           );
