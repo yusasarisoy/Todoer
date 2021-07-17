@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../widgets/tasks_list.dart';
 
 class AddTaskScreen extends StatelessWidget {
   final Function addTaskCallback;
